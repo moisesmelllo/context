@@ -11,6 +11,7 @@ const ChangeCounter = () => {
   return (
     <div>
       <button onClick={() => setCounter(counter + 1)}>Add value to counter</button>
+      <button onClick={() => setCounter(counter - 1)}>Subtract value to counter</button>
     </div>
   )
 }

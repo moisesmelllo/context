@@ -6,22 +6,24 @@ import { useTitleColorContext } from "../hooks/useTitleColorContext"
 const Home = () => {
   const {counter} = useCounterContext()
 
-  const { color, dispatch } = useTitleColorContext()
+  const { color, font, background, dispatch } = useTitleColorContext()
 
   // ALTERANDO STATE COMPLEXO
-  const setTitleColor = (color) => {
-    dispatch({type: color});
+  const setTitleColor = (botao) => {
+    dispatch({type: botao});
+    console.log(botao);
   }
 
   return (
     <div>
-      <h1 style={{color: color}}>Home</h1>
+      <h1 style={{color: color, fontFamily: font, backgroundColor: background}}>Home</h1>
+      {console.log(color)}
       <p>Valor do contador: {counter}</p>
       <ChangeCounter />
       {/* alterando contexto complexo */}
       <div>
-        <button onClick={() => setTitleColor("RED")}>Vermelho</button>
-        <button onClick={() => setTitleColor("BLUE")}>AZUL</button>
+        <button onClick={() => setTitleColor("botao1")}>Vermelho</button>
+        <button onClick={() => setTitleColor("botao2")}>AZUL</button>
       </div>
     </div>
   )
